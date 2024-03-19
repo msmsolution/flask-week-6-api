@@ -6,15 +6,20 @@
         <title>microblog</title>
         {% endif %}
     </head>
-    <body>
-        <div>
-            Microblog:
+    <body style="margin: 0 auto; text-align: center;">
+        <div style="font-size: 24px;">
+            Stephen's Blog:
             <a href="{{ url_for('index') }}">Home</a>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
             {% else %}
             <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
+        </div>
+        <div>
+            {% block content %}
+            <h1>Student Profile</h1>
+            {% endblock %}
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}
